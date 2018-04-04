@@ -20,6 +20,13 @@ Chatbot Workshop using a TJBot and Node-RED - This workshop is a fast paced 60 m
 * TJBot 
  * Link - https://github.com/ibmtjbot/tjbot/blob/master/README.md
 
+### Connect to your workshop TJBot
+* Your laptop needs to be connected to the IBM Wireless network.  If your system is connected to the IBM Visitor network, you will not be able to connect to your TJBot.  Connect your system to the IBM internal network before proceeding.
+* Open a browser tab on your laptop - Firefox or Chrome recommended.
+* Next to your TJBot, there will be a postcard / Post-IT with the IP Address of your TJBot.
+* Enter **http://<your TJBot>:1880**
+* Node-RED will load and you can proceed with the rest of the workshop.
+
 ## Introduction to Watson Cognitive Services - Speech to Text / Text to Speech / Language Translation / Watson Conversation
 * Speech to Text
 * Text to Speech
@@ -27,6 +34,11 @@ Chatbot Workshop using a TJBot and Node-RED - This workshop is a fast paced 60 m
 * Watson Conversation
 
 ## Build a Text to Speech flow using Node-RED
+0. Create Text to Speech Credentials
+1. Click on the tab connected to the inject node to start the flow
+2. Double click on the *text to speech* node to change the voice to Allison
+3. Double click on the inject node to change the sentence
+
 ## Build a Speech to Text flow using Node-RED
 ## Build a Language Translation flow using Node-RED
 ## Build a Conversation flow using Node-RED
