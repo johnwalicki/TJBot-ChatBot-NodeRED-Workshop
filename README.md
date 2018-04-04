@@ -35,9 +35,16 @@ Chatbot Workshop using a TJBot and Node-RED - This workshop is a fast paced 60 m
 
 ## Build a Text to Speech flow using Node-RED
 0. Create Text to Speech Credentials
-1. Click on the tab connected to the inject node to start the flow
-2. Double click on the *text to speech* node to change the voice to Allison
-3. Double click on the inject node to change the sentence
+ * Visit https://console.bluemix.net/catalog/services/text-to-speech
+ * Press the Create button to generate an API key.
+ * Paste these details into the Text to Speech node.
+ * Double-click to open the Text to Speech node.
+ * Enter the username and password credentials
+ * Press the Done button
+ * Press the Deploy button.
+1. Click on the tab connected to the **inject node** to start the flow
+2. Double click on the **text to speech** node to change the voice to Allison
+3. Double click on the **inject node** to change the sentence
 
 ## Build a Speech to Text flow using Node-RED
 ## Build a Language Translation flow using Node-RED
