@@ -17,15 +17,19 @@ Chatbot Workshop using a TJBot and Node-RED - This workshop is a fast paced 60 m
  * It’s accessible to a wide range of developers and non-developers: This is one of the most important benefits we’ve seen. Anyone who understands a domain-specific problem, such as a business analyst, a linguist, or a building engineer, will know the discrete steps needed to solve it. Node-RED gives them the tools to express those steps within a flow and build the solution for themselves.
  * The visual nature helps users to see their application: “Show, don’t tell” is a powerful concept. We often see Node-RED used to demo API capabilities, such as for Watson cognitive services. It’s so effective because the visualization of your application logic shows the art of the possible without having to explain every semi-colon, bracket, and brace. Not everyone thinks in lines of code; the visual representation of application logic is much more relatable.
 
-* TJBot
+* TJBot -
  * Link - https://github.com/ibmtjbot/tjbot/blob/master/README.md
 
 ### Connect to your workshop TJBot
 * Your laptop needs to be connected to the IBM Wireless network.  If your system is connected to the IBM Visitor network, you will not be able to connect to your TJBot.  Connect your system to the IBM internal network before proceeding.
 * Open a browser tab on your laptop - Firefox or Chrome recommended.
 * Next to your TJBot, there will be a postcard / Post-IT with the IP Address of your TJBot.
-* Enter **http://<your TJBot>:1880**
+* Enter **`http://<your TJBot IP address>:1880`**
 * Node-RED will load and you can proceed with the rest of the workshop.
+
+## IBM Cloud Account
+* If you do not yet have an IBM Cloud account, please create one now.
+* Login at http://bluemix.net
 
 ## Introduction to Watson Cognitive Services - Speech to Text / Text to Speech / Language Translation / Watson Conversation
 * Speech to Text
@@ -81,7 +85,7 @@ Chatbot Workshop using a TJBot and Node-RED - This workshop is a fast paced 60 m
 ![Speech to Text flow creds screenshot](screenshots/Speech2Text-flow-config-creds.png)
  * Press the Done button
  * Press the Deploy button.
-1. Click on the tab connected to the **Click here to Start Recording** to start the flow
+2. Click on the tab connected to the **Click here to Start Recording** to start the flow
 ![Speech to Text flow run screenshot](screenshots/Speech2Text-flow-run.png)
  * Talk to the TJBot
  * Click on the tab connected to the **Click here to Stop Recording**
@@ -123,20 +127,23 @@ Chatbot Workshop using a TJBot and Node-RED - This workshop is a fast paced 60 m
 
 ## Build a Universal Translator with Watson
 1. Combine the three flows to build a simple Universal Translator.
-2. Just paste in your API Keys
+2. Just paste in your API Keys!
  ![Universal Translator screenshot](screenshots/UniversalTranslatorwithWatson.png)
  * Press the Done button
  * Press the Deploy button.
 2. Click on Start Recording tab, talk and then click on the Stop Recording tab.
 
 ## Build a Conversation flow using Node-RED
-
+0. We need more than an hour long workshop so I've built the flow for you.
+ ![Watson Conversation](screenshots/Conversation-flow-run.png)
 
 ## Make TJBot Wave Goodbye
-1. Turn to the Wave Arm flows
-2. Click on the tab connected to the inject node.
+0. Turn to the Wave Arm flows
+1. Click on the tab connected to the inject node.
 
 ## ChatBot Finale !
-1. Enable the **TJBot Listen** flow.
-2. The instructor will say *Hey Watson*
-3. All of the TJBots will reply - *How can I help you?*
+0. Enable the **TJBot Listen** flow by clicking on the tab and sliding the Status toggle to Enabled
+1. Press the Deploy button.
+2. All of the TJBots are now listening for a wake word.
+3. The instructor will say *Hey Watson*
+4. All of the TJBots will reply - *How can I help you?*
