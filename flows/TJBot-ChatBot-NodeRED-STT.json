@@ -1,0 +1,160 @@
+[
+    {
+        "id": "9463cb61.a6ab6",
+        "type": "tab",
+        "label": "Speech to Text",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "e97f4e3b.59fba8",
+        "type": "inject",
+        "z": "9463cb61.a6ab6",
+        "name": "Click here to Start Recording",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 220,
+        "y": 100,
+        "wires": [
+            [
+                "5fd7e8bc.b66928"
+            ]
+        ]
+    },
+    {
+        "id": "8730e83e.13432",
+        "type": "inject",
+        "z": "9463cb61.a6ab6",
+        "name": "Click here to Stop Recording",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 220,
+        "y": 140,
+        "wires": [
+            [
+                "5fd7e8bc.b66928"
+            ]
+        ]
+    },
+    {
+        "id": "6534412.44c2bc",
+        "type": "watson-speech-to-text",
+        "z": "9463cb61.a6ab6",
+        "name": "",
+        "alternatives": "",
+        "speakerlabels": false,
+        "smartformatting": false,
+        "lang": "en-US",
+        "langhidden": "en-US",
+        "langcustom": "NoCustomisationSetting",
+        "langcustomhidden": "",
+        "band": "BroadbandModel",
+        "bandhidden": "BroadbandModel",
+        "password": "",
+        "payload-response": true,
+        "default-endpoint": true,
+        "service-endpoint": "",
+        "x": 620,
+        "y": 120,
+        "wires": [
+            [
+                "784311bd.107bd"
+            ]
+        ]
+    },
+    {
+        "id": "784311bd.107bd",
+        "type": "debug",
+        "z": "9463cb61.a6ab6",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "transcription",
+        "x": 830,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "5fd7e8bc.b66928",
+        "type": "microPi",
+        "z": "9463cb61.a6ab6",
+        "name": "microPi",
+        "filename": "/home/pi/audio/demo.wav",
+        "domain": "http://localhost:1880/getAudio",
+        "rate": "16000",
+        "bitwidth": "16",
+        "endian": "little",
+        "encoding": "signed-integer",
+        "channels": "1",
+        "silence": "5",
+        "debug": true,
+        "mode": "666",
+        "x": 440,
+        "y": 120,
+        "wires": [
+            [],
+            [
+                "6534412.44c2bc"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "b4fe8f62.0288b8",
+        "type": "comment",
+        "z": "9463cb61.a6ab6",
+        "name": "0. Create Speech to Text credentials",
+        "info": "Visit \nhttps://console.bluemix.net/catalog/services/speech-to-text\n\nPress the Create button to generate an API key.\n\nPaste these details into the Speech to Text node below.",
+        "x": 620,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "f7ee81b.683508",
+        "type": "comment",
+        "z": "9463cb61.a6ab6",
+        "name": "1. Click on the tab next to \"Click here to Start Recording\"",
+        "info": "",
+        "x": 410,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "80a326ec.38436",
+        "type": "comment",
+        "z": "9463cb61.a6ab6",
+        "name": "2. Talk to your TJ Bot in a friendly voice",
+        "info": "",
+        "x": 350,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "e8264755.7b5848",
+        "type": "comment",
+        "z": "9463cb61.a6ab6",
+        "name": "3. Click on the tab \"Click here to Stop Recording\"",
+        "info": "",
+        "x": 380,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "8a70b7fe.273638",
+        "type": "comment",
+        "z": "9463cb61.a6ab6",
+        "name": "4. The transcript will appear in the debug side panel",
+        "info": "",
+        "x": 390,
+        "y": 320,
+        "wires": []
+    }
+]

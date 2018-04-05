@@ -1,0 +1,791 @@
+[
+    {
+        "id": "8bcd332e.d283d8",
+        "type": "tab",
+        "label": "Conversation",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "351ba61f.bc73b2",
+        "type": "watson-speech-to-text",
+        "z": "8bcd332e.d283d8",
+        "name": "",
+        "alternatives": "",
+        "speakerlabels": false,
+        "smartformatting": false,
+        "lang": "en-US",
+        "langhidden": "en-US",
+        "langcustom": "NoCustomisationSetting",
+        "langcustomhidden": "",
+        "band": "BroadbandModel",
+        "bandhidden": "BroadbandModel",
+        "password": "pAJYZ8x4Ph7t",
+        "payload-response": true,
+        "default-endpoint": true,
+        "service-endpoint": "",
+        "x": 480,
+        "y": 120,
+        "wires": [
+            [
+                "796b6fdd.64c718",
+                "d3f8e3d8.fa7648",
+                "44035349.348864"
+            ]
+        ]
+    },
+    {
+        "id": "796b6fdd.64c718",
+        "type": "debug",
+        "z": "8bcd332e.d283d8",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "transcription",
+        "x": 710,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "373c2867.19a278",
+        "type": "comment",
+        "z": "8bcd332e.d283d8",
+        "name": "Paste API keys for Speech to Text",
+        "info": "1. Log into Bluemix\n2. Create an instance of the \nWatson Speech to Text service.\n3. Visit the Service Credentials tab\n4. Click on View Credentials\n5. Copy/Paste the password and username into\nthis Node-RED node.",
+        "x": 440,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "ac88fdae.39ef1",
+        "type": "watson-text-to-speech",
+        "z": "8bcd332e.d283d8",
+        "name": "",
+        "lang": "en-US",
+        "langhidden": "en-US",
+        "langcustom": "NoCustomisationSetting",
+        "langcustomhidden": "",
+        "voice": "en-US_AllisonVoice",
+        "voicehidden": "en-US_AllisonVoice",
+        "format": "audio/wav",
+        "password": "5824BY7NvNkT",
+        "payload-response": true,
+        "default-endpoint": true,
+        "service-endpoint": "",
+        "x": 220,
+        "y": 740,
+        "wires": [
+            [
+                "291c2459.19a724"
+            ]
+        ]
+    },
+    {
+        "id": "462509d7.c481e8",
+        "type": "comment",
+        "z": "8bcd332e.d283d8",
+        "name": "Paste API keys for Text to Speech",
+        "info": "1. Log into Bluemix\n2. Create an instance of the \nWatson Text to Speech service.\n3. Visit the Service Credentials tab\n4. Click on View Credentials\n5. Copy/Paste the password and username into\nthis Node-RED node.",
+        "x": 260,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "d3f8e3d8.fa7648",
+        "type": "ui_text",
+        "z": "8bcd332e.d283d8",
+        "group": "bd74be09.147508",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Microphone input : ",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 710,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "ba333be6.222f98",
+        "type": "ui_text",
+        "z": "8bcd332e.d283d8",
+        "group": "bd74be09.147508",
+        "order": 0,
+        "width": "8",
+        "height": "4",
+        "name": "",
+        "label": "Audio output",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 210,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "c718c322.c5b0f8",
+        "type": "link in",
+        "z": "8bcd332e.d283d8",
+        "name": "English Output",
+        "links": [
+            "3fad9e7c.6e23ea",
+            "cf186ae9.2ac7e8",
+            "62a75bd5.064504",
+            "84ffefda.7d4bf8"
+        ],
+        "x": 55,
+        "y": 740,
+        "wires": [
+            [
+                "ba333be6.222f98",
+                "ac88fdae.39ef1",
+                "33e337ba.6a8668"
+            ]
+        ]
+    },
+    {
+        "id": "1aebed25.1d5f43",
+        "type": "comment",
+        "z": "8bcd332e.d283d8",
+        "name": "Speak text and output to dashboard ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++",
+        "info": "",
+        "x": 450,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "95dd110.8e4527",
+        "type": "watson-conversation-v1",
+        "z": "8bcd332e.d283d8",
+        "name": "TobyJnr Conversation",
+        "workspaceid": "",
+        "multiuser": false,
+        "context": true,
+        "empty-payload": false,
+        "default-endpoint": false,
+        "service-endpoint": "",
+        "x": 360,
+        "y": 320,
+        "wires": [
+            [
+                "388609a9.5eff76",
+                "5c152808.197708"
+            ]
+        ]
+    },
+    {
+        "id": "388609a9.5eff76",
+        "type": "switch",
+        "z": "8bcd332e.d283d8",
+        "name": "Conversation Actions",
+        "property": "payload.output.action",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "CurrentTempCentigrade",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "CurrentTempFahrenheit",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "CurrentWeather",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "changeColour",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "quit",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "outputs": 6,
+        "x": 600,
+        "y": 360,
+        "wires": [
+            [
+                "de2e2bd4.ab43f8"
+            ],
+            [
+                "6d243593.32bf7c"
+            ],
+            [
+                "d7c8f80d.a023d"
+            ],
+            [
+                "71a3627b.0be0c4"
+            ],
+            [
+                "594bccb9.c72b54"
+            ],
+            [
+                "749ed27b.6fdff4"
+            ]
+        ]
+    },
+    {
+        "id": "97e0688d.ba5ad",
+        "type": "inject",
+        "z": "8bcd332e.d283d8",
+        "name": "",
+        "topic": "",
+        "payload": "Hi",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 130,
+        "y": 400,
+        "wires": [
+            [
+                "95dd110.8e4527"
+            ]
+        ]
+    },
+    {
+        "id": "3dd3c408.6fcc8c",
+        "type": "inject",
+        "z": "8bcd332e.d283d8",
+        "name": "Weather",
+        "topic": "",
+        "payload": "What is the weather today",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "x": 140,
+        "y": 520,
+        "wires": [
+            [
+                "95dd110.8e4527"
+            ]
+        ]
+    },
+    {
+        "id": "cf653051.66385",
+        "type": "inject",
+        "z": "8bcd332e.d283d8",
+        "name": "",
+        "topic": "",
+        "payload": "bye",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 130,
+        "y": 440,
+        "wires": [
+            [
+                "95dd110.8e4527"
+            ]
+        ]
+    },
+    {
+        "id": "939ccc6f.82511",
+        "type": "inject",
+        "z": "8bcd332e.d283d8",
+        "name": "",
+        "topic": "",
+        "payload": "set colour to green",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 170,
+        "y": 560,
+        "wires": [
+            [
+                "95dd110.8e4527"
+            ]
+        ]
+    },
+    {
+        "id": "de2e2bd4.ab43f8",
+        "type": "template",
+        "z": "8bcd332e.d283d8",
+        "name": "Centigrade",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{payload.output.text.0}} {{flow.tempC}}, {{payload.output.text.1}}",
+        "output": "str",
+        "x": 830,
+        "y": 260,
+        "wires": [
+            [
+                "84ffefda.7d4bf8"
+            ]
+        ]
+    },
+    {
+        "id": "520d04a8.7c8284",
+        "type": "inject",
+        "z": "8bcd332e.d283d8",
+        "name": "",
+        "topic": "",
+        "payload": "What's the temp in C",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 180,
+        "y": 600,
+        "wires": [
+            [
+                "95dd110.8e4527"
+            ]
+        ]
+    },
+    {
+        "id": "594bccb9.c72b54",
+        "type": "change",
+        "z": "8bcd332e.d283d8",
+        "name": "End conversation",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.output.text[0]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "inConversation",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 850,
+        "y": 420,
+        "wires": [
+            [
+                "84ffefda.7d4bf8"
+            ]
+        ]
+    },
+    {
+        "id": "6d243593.32bf7c",
+        "type": "template",
+        "z": "8bcd332e.d283d8",
+        "name": "Fahrenheit",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{payload.output.text.0}} {{flow.tempF}}, {{payload.output.text.1}}",
+        "output": "str",
+        "x": 830,
+        "y": 300,
+        "wires": [
+            [
+                "84ffefda.7d4bf8"
+            ]
+        ]
+    },
+    {
+        "id": "71a3627b.0be0c4",
+        "type": "template",
+        "z": "8bcd332e.d283d8",
+        "name": "Colour",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{payload.output.text.0}}, {{payload.output.text.1}}",
+        "output": "str",
+        "x": 810,
+        "y": 380,
+        "wires": [
+            [
+                "84ffefda.7d4bf8"
+            ]
+        ]
+    },
+    {
+        "id": "d7c8f80d.a023d",
+        "type": "change",
+        "z": "8bcd332e.d283d8",
+        "name": "convData",
+        "rules": [
+            {
+                "t": "set",
+                "p": "convData",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 820,
+        "y": 340,
+        "wires": [
+            [
+                "9a9e15e1.552f58"
+            ]
+        ]
+    },
+    {
+        "id": "a7ef00cf.12fcc",
+        "type": "template",
+        "z": "8bcd332e.d283d8",
+        "name": "format forecast",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{convData.output.text.0}} {{payload.weather}} with a temperature of {{payload.tempc}} centigrade, {{convData.output.text.1}}",
+        "output": "str",
+        "x": 1140,
+        "y": 340,
+        "wires": [
+            [
+                "84ffefda.7d4bf8"
+            ]
+        ]
+    },
+    {
+        "id": "d9c004f4.f3b5c8",
+        "type": "comment",
+        "z": "8bcd332e.d283d8",
+        "name": "Have a conversation with the flow ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++",
+        "info": "",
+        "x": 450,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "9a1af340.4db6a8",
+        "type": "inject",
+        "z": "8bcd332e.d283d8",
+        "name": "Temp F",
+        "topic": "",
+        "payload": "What's the temp in Fahrenheit",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 130,
+        "y": 480,
+        "wires": [
+            [
+                "95dd110.8e4527"
+            ]
+        ]
+    },
+    {
+        "id": "44035349.348864",
+        "type": "link out",
+        "z": "8bcd332e.d283d8",
+        "name": "",
+        "links": [
+            "2b1ae599.be7b8a"
+        ],
+        "x": 635,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "c3308a6.1842978",
+        "type": "comment",
+        "z": "8bcd332e.d283d8",
+        "name": "to conversation",
+        "info": "",
+        "x": 740,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "2b1ae599.be7b8a",
+        "type": "link in",
+        "z": "8bcd332e.d283d8",
+        "name": "conversation",
+        "links": [
+            "44035349.348864"
+        ],
+        "x": 175,
+        "y": 320,
+        "wires": [
+            [
+                "95dd110.8e4527"
+            ]
+        ]
+    },
+    {
+        "id": "749ed27b.6fdff4",
+        "type": "change",
+        "z": "8bcd332e.d283d8",
+        "name": "speak text",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.output.text[0]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 830,
+        "y": 460,
+        "wires": [
+            [
+                "84ffefda.7d4bf8"
+            ]
+        ]
+    },
+    {
+        "id": "84ffefda.7d4bf8",
+        "type": "link out",
+        "z": "8bcd332e.d283d8",
+        "name": "",
+        "links": [
+            "c718c322.c5b0f8"
+        ],
+        "x": 1315,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "d998cffa.f7385",
+        "type": "comment",
+        "z": "8bcd332e.d283d8",
+        "name": "Speak output",
+        "info": "",
+        "x": 1270,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "43a70378.ef9a8c",
+        "type": "comment",
+        "z": "8bcd332e.d283d8",
+        "name": "Paste API keys for Conversation",
+        "info": "1. Log into Bluemix\n2. Create an instance of the \nWatson Conversation service.\n3. Visit the Service Credentials tab\n4. Click on View Credentials\n5. Copy/Paste the password and username into\nthis Node-RED node.",
+        "x": 570,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "752a936d.59efec",
+        "type": "ui_text_input",
+        "z": "8bcd332e.d283d8",
+        "name": "",
+        "label": "Text input",
+        "group": "b6ee89f7.b6e918",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "",
+        "x": 500,
+        "y": 160,
+        "wires": [
+            [
+                "44035349.348864"
+            ]
+        ]
+    },
+    {
+        "id": "9a9e15e1.552f58",
+        "type": "wunderground",
+        "z": "8bcd332e.d283d8",
+        "name": "Weather",
+        "lon": "",
+        "lat": "",
+        "city": "Armonk",
+        "country": "US",
+        "x": 980,
+        "y": 340,
+        "wires": [
+            [
+                "a7ef00cf.12fcc"
+            ]
+        ]
+    },
+    {
+        "id": "4de9c9e6.1a5fa",
+        "type": "comment",
+        "z": "8bcd332e.d283d8",
+        "name": "Test inputs",
+        "info": "",
+        "x": 120,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "5c152808.197708",
+        "type": "debug",
+        "z": "8bcd332e.d283d8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "x": 550,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "dfa53f47.f41368",
+        "type": "comment",
+        "z": "8bcd332e.d283d8",
+        "name": "Input +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++",
+        "info": "",
+        "x": 450,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "4cc8e89f.f0e5",
+        "type": "microPi",
+        "z": "8bcd332e.d283d8",
+        "name": "microPi",
+        "filename": "/home/pi/audio/demo.wav",
+        "domain": "http://localhost:1880/getAudio",
+        "rate": "16000",
+        "bitwidth": "16",
+        "endian": "little",
+        "encoding": "signed-integer",
+        "channels": "1",
+        "silence": "5",
+        "debug": true,
+        "mode": "666",
+        "x": 300,
+        "y": 120,
+        "wires": [
+            [],
+            [
+                "351ba61f.bc73b2"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "1044feef.761c21",
+        "type": "inject",
+        "z": "8bcd332e.d283d8",
+        "name": "Stop Recording",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "x": 120,
+        "y": 140,
+        "wires": [
+            [
+                "4cc8e89f.f0e5"
+            ]
+        ]
+    },
+    {
+        "id": "927a225c.dcbd3",
+        "type": "inject",
+        "z": "8bcd332e.d283d8",
+        "name": "Start Recording",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "x": 120,
+        "y": 100,
+        "wires": [
+            [
+                "4cc8e89f.f0e5"
+            ]
+        ]
+    },
+    {
+        "id": "291c2459.19a724",
+        "type": "speakerpi-output",
+        "z": "8bcd332e.d283d8",
+        "choose": "filebased",
+        "filename": "",
+        "channels": "1",
+        "bitdepth": "8",
+        "samplerate": "11025",
+        "name": "",
+        "x": 441,
+        "y": 739,
+        "wires": []
+    },
+    {
+        "id": "33e337ba.6a8668",
+        "type": "debug",
+        "z": "8bcd332e.d283d8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 210,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "bd74be09.147508",
+        "type": "ui_group",
+        "z": "",
+        "name": "Audio",
+        "tab": "f905ba7d.f905d8",
+        "order": 3,
+        "disp": true,
+        "width": "8"
+    },
+    {
+        "id": "b6ee89f7.b6e918",
+        "type": "ui_group",
+        "z": "",
+        "name": "Conversation",
+        "tab": "f905ba7d.f905d8",
+        "order": 4,
+        "disp": true,
+        "width": "8"
+    },
+    {
+        "id": "f905ba7d.f905d8",
+        "type": "ui_tab",
+        "z": "",
+        "name": "TJBot",
+        "icon": "dashboard",
+        "order": 4
+    }
+]

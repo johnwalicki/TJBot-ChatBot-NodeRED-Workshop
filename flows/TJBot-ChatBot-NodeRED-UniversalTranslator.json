@@ -1,0 +1,252 @@
+[
+    {
+        "id": "81938def.220008",
+        "type": "tab",
+        "label": "Universal Translator",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "87eb5e2b.b23fd",
+        "type": "watson-translator",
+        "z": "81938def.220008",
+        "name": "",
+        "action": "translate",
+        "basemodel": "es-en",
+        "domain": "conversational",
+        "srclang": "en",
+        "destlang": "es",
+        "password": "",
+        "custom": "",
+        "domainhidden": "conversational",
+        "srclanghidden": "en",
+        "destlanghidden": "es",
+        "basemodelhidden": "es-en",
+        "customhidden": "",
+        "filetype": "forcedglossary",
+        "trainid": "",
+        "lgparams2": true,
+        "neural": false,
+        "default-endpoint": true,
+        "service-endpoint": "https://gateway.watsonplatform.net/language-translator/api",
+        "x": 370,
+        "y": 200,
+        "wires": [
+            [
+                "b024a43b.acdf6",
+                "78c212cb.d23fd4"
+            ]
+        ]
+    },
+    {
+        "id": "b024a43b.acdf6",
+        "type": "debug",
+        "z": "81938def.220008",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 590,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "f2c1b866.02c5d",
+        "type": "comment",
+        "z": "81938def.220008",
+        "name": "Paste Language Translation credentials",
+        "info": "Visit \nhttps://console.bluemix.net/catalog/services/language-translator\n\nPress the Create button to generate an API key.\n\nPaste these details into the Language Translator node below.",
+        "x": 540,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "20ba7751.9b10f8",
+        "type": "speakerpi-output",
+        "z": "81938def.220008",
+        "choose": "filebased",
+        "filename": "",
+        "channels": "1",
+        "bitdepth": "8",
+        "samplerate": "11025",
+        "name": "",
+        "x": 560,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "78c212cb.d23fd4",
+        "type": "watson-text-to-speech",
+        "z": "81938def.220008",
+        "name": "",
+        "lang": "es-ES",
+        "langhidden": "es-ES",
+        "langcustom": "NoCustomisationSetting",
+        "langcustomhidden": "NoCustomisationSetting",
+        "voice": "es-ES_LauraVoice",
+        "voicehidden": "en-US_AllisonVoice",
+        "format": "audio/wav",
+        "password": "",
+        "payload-response": true,
+        "default-endpoint": true,
+        "service-endpoint": "",
+        "x": 340,
+        "y": 300,
+        "wires": [
+            [
+                "20ba7751.9b10f8"
+            ]
+        ]
+    },
+    {
+        "id": "807ee881.b0832",
+        "type": "comment",
+        "z": "81938def.220008",
+        "name": "1. Paste Text to Speech credentials",
+        "info": "Visit \nhttps://console.bluemix.net/catalog/services/text-to-speech\nPress the Create button to generate an API key.\n\nPaste these details into the Text to Speech node.\nDouble-click to open the Text to Speech node.\nEnter the username and password credentials\nPress the Done button\nPress the Deploy button.",
+        "x": 520,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "4ecef947.50569",
+        "type": "inject",
+        "z": "81938def.220008",
+        "name": "Click here to Start Recording",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 160,
+        "y": 60,
+        "wires": [
+            [
+                "60cfd102.60c6d"
+            ]
+        ]
+    },
+    {
+        "id": "8adf3aec.91f208",
+        "type": "inject",
+        "z": "81938def.220008",
+        "name": "Click here to Stop Recording",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 160,
+        "y": 100,
+        "wires": [
+            [
+                "60cfd102.60c6d"
+            ]
+        ]
+    },
+    {
+        "id": "7f162149.619b38",
+        "type": "watson-speech-to-text",
+        "z": "81938def.220008",
+        "name": "",
+        "alternatives": "",
+        "speakerlabels": false,
+        "smartformatting": false,
+        "lang": "en-US",
+        "langhidden": "en-US",
+        "langcustom": "NoCustomisationSetting",
+        "langcustomhidden": "",
+        "band": "BroadbandModel",
+        "bandhidden": "BroadbandModel",
+        "password": "",
+        "payload-response": true,
+        "default-endpoint": true,
+        "service-endpoint": "",
+        "x": 560,
+        "y": 80,
+        "wires": [
+            [
+                "7a72fdf9.2311b4",
+                "1c604977.6d266f"
+            ]
+        ]
+    },
+    {
+        "id": "7a72fdf9.2311b4",
+        "type": "debug",
+        "z": "81938def.220008",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "transcription",
+        "x": 770,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "60cfd102.60c6d",
+        "type": "microPi",
+        "z": "81938def.220008",
+        "name": "microPi",
+        "filename": "/home/pi/audio/demo.wav",
+        "domain": "http://localhost:1880/getAudio",
+        "rate": "16000",
+        "bitwidth": "16",
+        "endian": "little",
+        "encoding": "signed-integer",
+        "channels": "1",
+        "silence": "5",
+        "debug": true,
+        "mode": "666",
+        "x": 380,
+        "y": 80,
+        "wires": [
+            [],
+            [
+                "7f162149.619b38"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "285f2c2e.a79f44",
+        "type": "comment",
+        "z": "81938def.220008",
+        "name": "Paste Speech to Text credentials",
+        "info": "Visit \nhttps://console.bluemix.net/catalog/services/speech-to-text\n\nPress the Create button to generate an API key.\n\nPaste these details into the Speech to Text node below.",
+        "x": 510,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "1c604977.6d266f",
+        "type": "change",
+        "z": "81938def.220008",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "transcription",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 140,
+        "y": 200,
+        "wires": [
+            [
+                "87eb5e2b.b23fd"
+            ]
+        ]
+    }
+]

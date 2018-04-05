@@ -1,0 +1,132 @@
+[
+    {
+        "id": "bd2f9272.e056f",
+        "type": "tab",
+        "label": "Lang Translation",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "cfa9dc23.6b52b",
+        "type": "inject",
+        "z": "bd2f9272.e056f",
+        "name": "",
+        "topic": "",
+        "payload": "Hello to all my friends",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 160,
+        "y": 100,
+        "wires": [
+            [
+                "64eb1328.6f5c0c"
+            ]
+        ]
+    },
+    {
+        "id": "64eb1328.6f5c0c",
+        "type": "watson-translator",
+        "z": "bd2f9272.e056f",
+        "name": "",
+        "action": "translate",
+        "basemodel": "es-en",
+        "domain": "conversational",
+        "srclang": "en",
+        "destlang": "es",
+        "password": "",
+        "custom": "",
+        "domainhidden": "conversational",
+        "srclanghidden": "en",
+        "destlanghidden": "es",
+        "basemodelhidden": "es-en",
+        "customhidden": "",
+        "filetype": "forcedglossary",
+        "trainid": "",
+        "lgparams2": true,
+        "neural": false,
+        "default-endpoint": true,
+        "service-endpoint": "https://gateway.watsonplatform.net/language-translator/api",
+        "x": 410,
+        "y": 100,
+        "wires": [
+            [
+                "a398df51.4c571"
+            ]
+        ]
+    },
+    {
+        "id": "a398df51.4c571",
+        "type": "debug",
+        "z": "bd2f9272.e056f",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 630,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "a0bfff2b.df6a7",
+        "type": "comment",
+        "z": "bd2f9272.e056f",
+        "name": "0. Create Language Translation credentials",
+        "info": "Visit \nhttps://console.bluemix.net/catalog/services/language-translator\n\nPress the Create button to generate an API key.\n\nPaste these details into the Language Translator node below.",
+        "x": 410,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "d23de4c0.af536",
+        "type": "speakerpi-output",
+        "z": "bd2f9272.e056f",
+        "choose": "filebased",
+        "filename": "",
+        "channels": "1",
+        "bitdepth": "8",
+        "samplerate": "11025",
+        "name": "",
+        "x": 520,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "c733e6fb.7f88e",
+        "type": "watson-text-to-speech",
+        "z": "bd2f9272.e056f",
+        "name": "",
+        "lang": "es-ES",
+        "langhidden": "es-ES",
+        "langcustom": "NoCustomisationSetting",
+        "langcustomhidden": "NoCustomisationSetting",
+        "voice": "es-ES_LauraVoice",
+        "voicehidden": "en-US_AllisonVoice",
+        "format": "audio/wav",
+        "password": "",
+        "payload-response": true,
+        "default-endpoint": true,
+        "service-endpoint": "",
+        "x": 300,
+        "y": 220,
+        "wires": [
+            [
+                "d23de4c0.af536"
+            ]
+        ]
+    },
+    {
+        "id": "138f805e.19cea",
+        "type": "comment",
+        "z": "bd2f9272.e056f",
+        "name": "1. Paste Text to Speech credentials",
+        "info": "Visit \nhttps://console.bluemix.net/catalog/services/text-to-speech\nPress the Create button to generate an API key.\n\nPaste these details into the Text to Speech node.\nDouble-click to open the Text to Speech node.\nEnter the username and password credentials\nPress the Done button\nPress the Deploy button.",
+        "x": 380,
+        "y": 280,
+        "wires": []
+    }
+]

@@ -1,0 +1,132 @@
+[
+    {
+        "id": "2f9d15eb.18329a",
+        "type": "tab",
+        "label": "Wave Arm",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "ed4d6b62.e8726",
+        "type": "inject",
+        "z": "2f9d15eb.18329a",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "5",
+        "x": 100,
+        "y": 40,
+        "wires": [
+            [
+                "a95ab9ba.9bafa8"
+            ]
+        ]
+    },
+    {
+        "id": "97e0eed2.96c1b",
+        "type": "trigger",
+        "z": "2f9d15eb.18329a",
+        "op1": "75",
+        "op2": "0",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "500",
+        "extend": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "name": "",
+        "x": 300,
+        "y": 100,
+        "wires": [
+            [
+                "15e8e77c.681969",
+                "6165e328.016ecc"
+            ]
+        ]
+    },
+    {
+        "id": "15e8e77c.681969",
+        "type": "function",
+        "z": "2f9d15eb.18329a",
+        "name": "",
+        "func": "msg.loop+=1;\nif( msg.loop > 5) { return null ; }\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 190,
+        "y": 200,
+        "wires": [
+            [
+                "39de79d9.b54176"
+            ]
+        ]
+    },
+    {
+        "id": "39de79d9.b54176",
+        "type": "delay",
+        "z": "2f9d15eb.18329a",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "500",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 350,
+        "y": 200,
+        "wires": [
+            [
+                "97e0eed2.96c1b"
+            ]
+        ]
+    },
+    {
+        "id": "a95ab9ba.9bafa8",
+        "type": "change",
+        "z": "2f9d15eb.18329a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "loop",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 110,
+        "y": 100,
+        "wires": [
+            [
+                "97e0eed2.96c1b"
+            ]
+        ]
+    },
+    {
+        "id": "6165e328.016ecc",
+        "type": "rpi-gpio out",
+        "z": "2f9d15eb.18329a",
+        "name": "",
+        "pin": "37",
+        "set": "",
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "x": 530,
+        "y": 100,
+        "wires": []
+    }
+]

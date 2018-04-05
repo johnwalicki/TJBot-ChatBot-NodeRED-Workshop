@@ -1,0 +1,107 @@
+[
+    {
+        "id": "a4881f88.b72228",
+        "type": "tab",
+        "label": "Text to Speech",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "225039eb.14b9fe",
+        "type": "watson-text-to-speech",
+        "z": "a4881f88.b72228",
+        "name": "",
+        "lang": "en-US",
+        "langhidden": "en-US",
+        "langcustom": "NoCustomisationSetting",
+        "langcustomhidden": "NoCustomisationSetting",
+        "voice": "en-US_AllisonVoice",
+        "voicehidden": "en-US_AllisonVoice",
+        "format": "audio/wav",
+        "password": "",
+        "payload-response": true,
+        "default-endpoint": true,
+        "service-endpoint": "",
+        "x": 380,
+        "y": 120,
+        "wires": [
+            [
+                "e0e2ba7b.80a48"
+            ]
+        ]
+    },
+    {
+        "id": "e0e2ba7b.80a48",
+        "type": "speakerpi-output",
+        "z": "a4881f88.b72228",
+        "choose": "filebased",
+        "filename": "",
+        "channels": "1",
+        "bitdepth": "8",
+        "samplerate": "11025",
+        "name": "",
+        "x": 600,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "c5b07a30.dee5e",
+        "type": "inject",
+        "z": "a4881f88.b72228",
+        "name": "",
+        "topic": "",
+        "payload": "Welcome to the IBM North Castle TJ Bot Workshop",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 190,
+        "y": 120,
+        "wires": [
+            [
+                "225039eb.14b9fe"
+            ]
+        ]
+    },
+    {
+        "id": "d87416ab.1da3a",
+        "type": "comment",
+        "z": "a4881f88.b72228",
+        "name": "0. Create Text to Speech credentials",
+        "info": "Visit \nhttps://console.bluemix.net/catalog/services/text-to-speech\nPress the Create button to generate an API key.\n\nPaste these details into the Text to Speech node.\nDouble-click to open the Text to Speech node.\nEnter the username and password credentials\nPress the Done button\nPress the Deploy button.",
+        "x": 380,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "d5ca5055.e372f8",
+        "type": "comment",
+        "z": "a4881f88.b72228",
+        "name": "3. Double click on the Inject node to change the sentence",
+        "info": "",
+        "x": 310,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "a704c534.6454a8",
+        "type": "comment",
+        "z": "a4881f88.b72228",
+        "name": "2. Double click on the text to speech node to change the voice to Allison",
+        "info": "Don't forget to press the red Deploy button",
+        "x": 360,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "5140f948.05551",
+        "type": "comment",
+        "z": "a4881f88.b72228",
+        "name": "1. Click on the tab connected to the Inject node to start the flow",
+        "info": "",
+        "x": 330,
+        "y": 220,
+        "wires": []
+    }
+]

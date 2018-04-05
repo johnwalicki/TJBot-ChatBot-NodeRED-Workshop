@@ -134,7 +134,7 @@ Chatbot Workshop using a TJBot and Node-RED - This workshop is a fast paced 60 m
  ![Universal Translator screenshot](screenshots/UniversalTranslatorwithWatson.png)
  * Press the Done button
  * Press the Deploy button.
-2. Click on Start Recording tab, talk and then click on the Stop Recording tab.
+3. Click on Start Recording tab, talk and then click on the Stop Recording tab.
 
 ## Build a Conversation flow using Node-RED
 0. We need more than an hour long workshop so I've built the flow for you.
