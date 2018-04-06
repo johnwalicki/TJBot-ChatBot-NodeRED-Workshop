@@ -29,6 +29,7 @@ Chatbot Workshop using a TJBot and Node-RED - This workshop is a fast paced 60 m
 * Next to your TJBot, there will be a postcard / Post-IT with the IP Address of your TJBot.
 * Enter **`http://<your TJBot IP address>:1880`**
 * Node-RED will load and you can proceed with the rest of the workshop.
+* Add the following nodes to the Node-RED palette - *node-red-contrib-micropi*, *node-red-node-pi-gpiod*, *node-red-contrib-speakerpi*
 
 ## IBM Cloud Account
 * If you do not yet have an IBM Cloud account, please create one now.
@@ -152,9 +153,13 @@ Import this flow from [github](flows/TJBot-ChatBot-NodeRED-UniversalTranslator.j
 Import this flow from [github](flows/TJBot-ChatBot-NodeRED-Conversation.json) into the Node-RED editor on your TJBot Raspberry Pi.
 
 0. We need more than an hour long workshop so I've built the flow for you.
- ![Watson Conversation](screenshots/Conversation-flow-run.png)
-1. Import the Conversation workspace into the IBM Cloud Watson Assistant / Conversation service from [here](https://github.com/binnes/tobyjnr/blob/master/conversation/TobyJnr_conversati
-on_workspace.json)
+1. Add the following nodes to the Node-RED palette (**node-red-contrib-browser-utils**, **node-red-dashboard** and **node-red-node-weather-underground**)  
+2. Import the Node-RED  [flow](https://github.com/binnes/iotWebinar/blob/master/webinar.flow) from this git repo  
+3. Add the Conversation, Speech to Text and Text to Speech API credentials from the IBM Cloud service instances into the nodes in the flow.
+4. Import the Conversation workspace into the IBM Cloud Watson Assistant / Conversation service from   [here](https://github.com/binnes/tobyjnr/blob/master/conversation/TobyJnr_conversation_workspace.json)
+5. Go to [Weather Underground](https://www.wunderground.com) and create an API key then add to the weather underground node  
+
+![Watson Conversation](screenshots/Conversation-flow-run.png)
 
 ## Make TJBot Wave Goodbye
 Import this flow from [github](flows/TJBot-ChatBot-NodeRED-Wave.json) into the Node-RED editor on your TJBot Raspberry Pi.
