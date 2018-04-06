@@ -44,6 +44,7 @@ Link - https://console.bluemix.net/catalog/?category=watson
 
 ## Build a Text to Speech flow using Node-RED
 Import this flow from [github](flows/TJBot-ChatBot-NodeRED-TTS.json)
+
 0. Create a Text to Speech service instance
  * Visit https://console.bluemix.net/catalog/services/text-to-speech
  * Press the Create button to create an instance of the Text to Speech service.
@@ -77,6 +78,7 @@ Import this flow from [github](flows/TJBot-ChatBot-NodeRED-TTS.json)
 
 ## Build a Speech to Text flow using Node-RED
 Import this flow from [github](flows/TJBot-ChatBot-NodeRED-STT.json)
+
 0. Turn to the next flow tab in the Node-RED editor.
 1. Create Speech to Text service instance
  * Visit https://console.bluemix.net/catalog/services/speech-to-text
@@ -101,6 +103,7 @@ Import this flow from [github](flows/TJBot-ChatBot-NodeRED-STT.json)
 
 ## Build a Language Translation flow using Node-RED
 Import this flow from [github](flows/TJBot-ChatBot-NodeRED-LangTrans.json)
+
 0. Turn to the next flow tab in the Node-RED editor.
 1. Create Language Translator Service instance.
  * Visit https://console.bluemix.net/catalog/services/language-translator
@@ -136,6 +139,7 @@ Import this flow from [github](flows/TJBot-ChatBot-NodeRED-LangTrans.json)
 
 ## Build a Universal Translator with Watson
 Import this flow from [github](flows/TJBot-ChatBot-NodeRED-UniversalTranslator.json)
+
 1. Combine the three flows to build a simple Universal Translator.
 2. Just paste in your API Keys!
  ![Universal Translator screenshot](screenshots/UniversalTranslatorwithWatson.png)
@@ -145,6 +149,7 @@ Import this flow from [github](flows/TJBot-ChatBot-NodeRED-UniversalTranslator.j
 
 ## Build a Conversation flow using Node-RED
 Import this flow from [github](flows/TJBot-ChatBot-NodeRED-Conversation.json)
+
 0. We need more than an hour long workshop so I've built the flow for you.
  ![Watson Conversation](screenshots/Conversation-flow-run.png)
 1. Import the Conversation workspace into the IBM Cloud Watson Assistant / Conversation service from [here](https://github.com/binnes/tobyjnr/blob/master/conversation/TobyJnr_conversati
@@ -152,6 +157,7 @@ on_workspace.json)
 
 ## Make TJBot Wave Goodbye
 Import this flow from [github](flows/TJBot-ChatBot-NodeRED-Wave.json)
+
 0. Turn to the Wave Arm flows.
 1. Click on the tab connected to the inject node.
 
