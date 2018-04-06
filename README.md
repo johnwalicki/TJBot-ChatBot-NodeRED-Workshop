@@ -43,7 +43,7 @@ Link - https://console.bluemix.net/catalog/?category=watson
 * Watson Assistant
 
 ## Build a Text to Speech flow using Node-RED
-Import this flow from [github](flows/TJBot-ChatBot-NodeRED-TTS.json)
+Import this flow from [github](flows/TJBot-ChatBot-NodeRED-TTS.json) into the Node-RED editor on your TJBot Raspberry Pi.
 
 0. Create a Text to Speech service instance
  * Visit https://console.bluemix.net/catalog/services/text-to-speech
@@ -77,7 +77,7 @@ Import this flow from [github](flows/TJBot-ChatBot-NodeRED-TTS.json)
  * Click on the tab connected to the **inject node** to run the flow again.
 
 ## Build a Speech to Text flow using Node-RED
-Import this flow from [github](flows/TJBot-ChatBot-NodeRED-STT.json)
+Import this flow from [github](flows/TJBot-ChatBot-NodeRED-STT.json) into the Node-RED editor on your TJBot Raspberry Pi.
 
 0. Turn to the next flow tab in the Node-RED editor.
 1. Create Speech to Text service instance
@@ -102,7 +102,7 @@ Import this flow from [github](flows/TJBot-ChatBot-NodeRED-STT.json)
  * The transcription will appear in the debug side panel.
 
 ## Build a Language Translation flow using Node-RED
-Import this flow from [github](flows/TJBot-ChatBot-NodeRED-LangTrans.json)
+Import this flow from [github](flows/TJBot-ChatBot-NodeRED-LangTrans.json) into the Node-RED editor on your TJBot Raspberry Pi.
 
 0. Turn to the next flow tab in the Node-RED editor.
 1. Create Language Translator Service instance.
@@ -139,6 +139,7 @@ Import this flow from [github](flows/TJBot-ChatBot-NodeRED-LangTrans.json)
 
 ## Build a Universal Translator with Watson
 Import this flow from [github](flows/TJBot-ChatBot-NodeRED-UniversalTranslator.json)
+ into the Node-RED editor on your TJBot Raspberry Pi.
 
 1. Combine the three flows to build a simple Universal Translator.
 2. Just paste in your API Keys!
@@ -148,7 +149,7 @@ Import this flow from [github](flows/TJBot-ChatBot-NodeRED-UniversalTranslator.j
 3. Click on Start Recording tab, talk and then click on the Stop Recording tab.
 
 ## Build a Conversation flow using Node-RED
-Import this flow from [github](flows/TJBot-ChatBot-NodeRED-Conversation.json)
+Import this flow from [github](flows/TJBot-ChatBot-NodeRED-Conversation.json) into the Node-RED editor on your TJBot Raspberry Pi.
 
 0. We need more than an hour long workshop so I've built the flow for you.
  ![Watson Conversation](screenshots/Conversation-flow-run.png)
@@ -156,7 +157,7 @@ Import this flow from [github](flows/TJBot-ChatBot-NodeRED-Conversation.json)
 on_workspace.json)
 
 ## Make TJBot Wave Goodbye
-Import this flow from [github](flows/TJBot-ChatBot-NodeRED-Wave.json)
+Import this flow from [github](flows/TJBot-ChatBot-NodeRED-Wave.json) into the Node-RED editor on your TJBot Raspberry Pi.
 
 0. Turn to the Wave Arm flows.
 1. Click on the tab connected to the inject node.
