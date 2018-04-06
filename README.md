@@ -13,11 +13,12 @@ Chatbot Workshop using a TJBot and Node-RED - This workshop is a fast paced 60 m
 * ChatBot Finale !
 
 ## Introduction to Node-RED and TJBot
-* Node-RED is an open-source Node.js application that provides a visual programming editor that makes it easy to wire together flows. Node-RED embodies a low-code style of application development, where developers can quickly create meaningful applications without having to write reams of code. There are a number of benefits to low-code application development, all of which we’ve seen first-hand with Node-RED.
+* [Node-RED](http://nodered.org) is an open-source Node.js application that provides a visual programming editor that makes it easy to wire together flows. Node-RED embodies a low-code style of application development, where developers can quickly create meaningful applications without having to write reams of code. There are a number of benefits to low-code application development, all of which we’ve seen first-hand with Node-RED.
 
  * It reduces the time it takes to create a working application: This allows the real value to be realized much quicker than with traditional development models.
  * It’s accessible to a wide range of developers and non-developers: This is one of the most important benefits we’ve seen. Anyone who understands a domain-specific problem, such as a business analyst, a linguist, or a building engineer, will know the discrete steps needed to solve it. Node-RED gives them the tools to express those steps within a flow and build the solution for themselves.
  * The visual nature helps users to see their application: “Show, don’t tell” is a powerful concept. We often see Node-RED used to demo API capabilities, such as for Watson cognitive services. It’s so effective because the visualization of your application logic shows the art of the possible without having to explain every semi-colon, bracket, and brace. Not everyone thinks in lines of code; the visual representation of application logic is much more relatable.
+ * Over 1300 additional user-contributed nodes can be found at [flows.nodered.org](http://flows.nodered.org)
 
 * TJBot is a little robot that brings a Raspberry Pi to life using Watson services.
  * Link - https://github.com/ibmtjbot/tjbot/blob/master/README.md
@@ -42,6 +43,7 @@ Link - https://console.bluemix.net/catalog/?category=watson
 * Watson Assistant
 
 ## Build a Text to Speech flow using Node-RED
+Import this flow from [github](flows/TJBot-ChatBot-NodeRED-TTS.json)
 0. Create a Text to Speech service instance
  * Visit https://console.bluemix.net/catalog/services/text-to-speech
  * Press the Create button to create an instance of the Text to Speech service.
@@ -74,6 +76,7 @@ Link - https://console.bluemix.net/catalog/?category=watson
  * Click on the tab connected to the **inject node** to run the flow again.
 
 ## Build a Speech to Text flow using Node-RED
+Import this flow from [github](flows/TJBot-ChatBot-NodeRED-STT.json)
 0. Turn to the next flow tab in the Node-RED editor.
 1. Create Speech to Text service instance
  * Visit https://console.bluemix.net/catalog/services/speech-to-text
@@ -97,6 +100,7 @@ Link - https://console.bluemix.net/catalog/?category=watson
  * The transcription will appear in the debug side panel.
 
 ## Build a Language Translation flow using Node-RED
+Import this flow from [github](flows/TJBot-ChatBot-NodeRED-LangTrans.json)
 0. Turn to the next flow tab in the Node-RED editor.
 1. Create Language Translator Service instance.
  * Visit https://console.bluemix.net/catalog/services/language-translator
@@ -131,6 +135,7 @@ Link - https://console.bluemix.net/catalog/?category=watson
 5. Translate and speak another language by changing the language in both the language translator node and the text to speech node.
 
 ## Build a Universal Translator with Watson
+Import this flow from [github](flows/TJBot-ChatBot-NodeRED-UniversalTranslator.json)
 1. Combine the three flows to build a simple Universal Translator.
 2. Just paste in your API Keys!
  ![Universal Translator screenshot](screenshots/UniversalTranslatorwithWatson.png)
@@ -139,10 +144,14 @@ Link - https://console.bluemix.net/catalog/?category=watson
 3. Click on Start Recording tab, talk and then click on the Stop Recording tab.
 
 ## Build a Conversation flow using Node-RED
+Import this flow from [github](flows/TJBot-ChatBot-NodeRED-Conversation.json)
 0. We need more than an hour long workshop so I've built the flow for you.
  ![Watson Conversation](screenshots/Conversation-flow-run.png)
+1. Import the Conversation workspace into the IBM Cloud Watson Assistant / Conversation service from [here](https://github.com/binnes/tobyjnr/blob/master/conversation/TobyJnr_conversati
+on_workspace.json)
 
 ## Make TJBot Wave Goodbye
+Import this flow from [github](flows/TJBot-ChatBot-NodeRED-Wave.json)
 0. Turn to the Wave Arm flows.
 1. Click on the tab connected to the inject node.
 
